@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Learning Lab</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --page-bg: #f5f6f8;
+        --card-bg: #ffffffee;
+        --text-color: #1a1a1a;
+        --accent-color: #4b5dff;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --page-bg: #0d1117;
+          --card-bg: #161b22ee;
+          --text-color: #f0f6fc;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--page-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        padding: 2.5rem 1rem;
+      }
+
+      main {
+        max-width: 680px;
+        width: 100%;
+        background: var(--card-bg);
+        border-radius: 18px;
+        padding: 2.5rem 3rem;
+        box-shadow: 0 18px 48px -28px rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        margin: 0 0 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin: 0 0 1.2rem;
+        font-size: 1.05rem;
+      }
+
+      ul {
+        margin: 1.5rem 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.85rem;
+      }
+
+      li::before {
+        content: "";
+        display: inline-block;
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 999px;
+        background: var(--accent-color);
+        box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent-color) 25%, transparent);
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+        background: var(--accent-color);
+        color: white;
+        padding: 0.75rem 1.2rem;
+        border-radius: 999px;
+        font-weight: 600;
+        margin-top: 1rem;
+        transition: transform 120ms ease, box-shadow 120ms ease;
+        box-shadow: 0 10px 24px -16px var(--accent-color);
+      }
+
+      .cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 32px -16px var(--accent-color);
+      }
+
+      footer {
+        margin-top: 2.5rem;
+        font-size: 0.9rem;
+        opacity: 0.7;
+        text-align: center;
+      }
+
+      @media (max-width: 600px) {
+        main {
+          padding: 2.25rem 1.75rem;
+        }
+
+        li {
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Learning Lab</h1>
+      <p>
+        Welcome! This minimal workspace will be the foundation for our learning
+        journey with GitHub and Codex. Everything starts here, and together we will
+        iterate to explore new concepts, experiment with ideas, and document what
+        we discover along the way.
+      </p>
+
+      <p>Here is how to get the most from this project:</p>
+      <ul>
+        <li>Review the README to understand how to run, edit, and extend this app.</li>
+        <li>Use version control intentionally—commit small, meaningful changes often.</li>
+        <li>Write notes about what you learn so you can look back on your progress.</li>
+      </ul>
+
+      <a class="cta" href="https://docs.github.com/en/get-started" target="_blank" rel="noreferrer">
+        Start learning with GitHub
+      </a>
+
+      <footer>
+        Built with curiosity. Ready for iteration.
+      </footer>
+    </main>
+  </body>
+</html>
