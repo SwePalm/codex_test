@@ -103,6 +103,28 @@
         box-shadow: 0 16px 32px -16px var(--accent-color);
       }
 
+      .alert-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #ffffff;
+        background: #e02424;
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        margin: 1.5rem auto 0;
+        transition: transform 120ms ease, box-shadow 120ms ease;
+        box-shadow: 0 12px 28px -20px rgba(224, 36, 36, 0.75);
+      }
+
+      .alert-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 36px -20px rgba(224, 36, 36, 0.9);
+      }
+
       footer {
         margin-top: 2.5rem;
         font-size: 0.9rem;
@@ -137,6 +159,10 @@
         <li>Use version control intentionally—commit small, meaningful changes often.</li>
         <li>Write notes about what you learn so you can look back on your progress.</li>
       </ul>
+
+      <button class="alert-button" type="button" onclick="alert('Button clicked!')">
+        Click Me
+      </button>
 
       <a class="cta" href="https://docs.github.com/en/get-started" target="_blank" rel="noreferrer">
         Start learning with GitHub
