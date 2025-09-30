@@ -132,6 +132,72 @@
         text-align: center;
       }
 
+      .notes {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.35);
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+
+      .notes h2 {
+        font-size: 1.4rem;
+        margin: 0 0 1rem;
+      }
+
+      .notes-form {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .notes-input {
+        flex: 1;
+        padding: 0.65rem 0.85rem;
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.45);
+        background: rgba(255, 255, 255, 0.92);
+        color: #1a1a1a;
+      }
+
+      .notes-input:focus {
+        outline: 2px solid color-mix(in srgb, var(--accent-color) 45%, transparent);
+        outline-offset: 2px;
+      }
+
+      .notes-add {
+        padding: 0.65rem 1.2rem;
+        border-radius: 12px;
+        border: none;
+        background: var(--accent-color);
+        color: #ffffff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 120ms ease, box-shadow 120ms ease;
+        box-shadow: 0 12px 28px -18px var(--accent-color);
+      }
+
+      .notes-add:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 32px -18px var(--accent-color);
+      }
+
+      .notes-list li {
+        background: rgba(148, 163, 184, 0.12);
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
       @media (max-width: 600px) {
         main {
           padding: 2.25rem 1.75rem;
@@ -168,9 +234,75 @@
         Start learning with GitHub
       </a>
 
+      <section class="notes" aria-labelledby="notes-heading">
+        <h2 id="notes-heading">Notes</h2>
+        <form class="notes-form" id="notes-form">
+          <label class="sr-only" for="notes-input">Add a new note</label>
+          <input
+            id="notes-input"
+            class="notes-input"
+            type="text"
+            name="note"
+            placeholder="Capture what you just learned..."
+            autocomplete="off"
+          />
+          <button class="notes-add" type="submit">Add</button>
+        </form>
+        <ul class="notes-list" id="notes-list"></ul>
+      </section>
+
       <footer>
         Built with curiosity. Ready for iteration.
       </footer>
     </main>
+
+    <script>
+      const NOTES_STORAGE_KEY = "learning-lab-notes";
+      const notesList = document.getElementById("notes-list");
+      const notesForm = document.getElementById("notes-form");
+      const notesInput = document.getElementById("notes-input");
+
+      const loadNotes = () => {
+        try {
+          const stored = localStorage.getItem(NOTES_STORAGE_KEY);
+          return stored ? JSON.parse(stored) : [];
+        } catch (error) {
+          console.warn("Unable to load notes", error);
+          return [];
+        }
+      };
+
+      let notes = loadNotes();
+
+      const persistNotes = () => {
+        localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(notes));
+      };
+
+      const renderNotes = () => {
+        notesList.innerHTML = "";
+        notes.forEach((note) => {
+          const item = document.createElement("li");
+          item.textContent = note;
+          notesList.appendChild(item);
+        });
+      };
+
+      notesForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const value = notesInput.value.trim();
+        if (!value) {
+          notesInput.value = "";
+          return;
+        }
+
+        notes = [...notes, value];
+        persistNotes();
+        renderNotes();
+        notesInput.value = "";
+        notesInput.focus();
+      });
+
+      renderNotes();
+    </script>
   </body>
 </html>
