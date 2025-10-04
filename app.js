@@ -69,6 +69,7 @@ const NOTES_STORAGE_KEY = "learning-lab-notes";
 const notesList = document.getElementById("notes-list");
 const notesForm = document.getElementById("notes-form");
 const notesInput = document.getElementById("notes-input");
+const notesClearButton = document.getElementById("notes-clear");
 
 const loadNotes = () => {
   try {
@@ -83,6 +84,10 @@ const loadNotes = () => {
 let notes = loadNotes();
 
 const persistNotes = () => {
+  if (!notes.length) {
+    localStorage.removeItem(NOTES_STORAGE_KEY);
+    return;
+  }
   localStorage.setItem(NOTES_STORAGE_KEY, JSON.stringify(notes));
 };
 
@@ -93,6 +98,9 @@ const renderNotes = () => {
     item.textContent = note;
     notesList.appendChild(item);
   });
+  if (notesClearButton) {
+    notesClearButton.disabled = notes.length === 0;
+  }
 };
 
 notesForm.addEventListener("submit", (event) => {
@@ -107,6 +115,13 @@ notesForm.addEventListener("submit", (event) => {
   persistNotes();
   renderNotes();
   notesInput.value = "";
+  notesInput.focus();
+});
+
+notesClearButton?.addEventListener("click", () => {
+  notes = [];
+  persistNotes();
+  renderNotes();
   notesInput.focus();
 });
 
