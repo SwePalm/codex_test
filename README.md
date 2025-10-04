@@ -25,6 +25,6 @@ exploring workflows, tooling, and best practices.
 
 ## Notes widget tips
 
-- Capture ideas with the form and use **Clear Notes** beneath the list to remove everything in one click when you want a fresh start.
+- Capture ideas with the `Type a note...` field and use **Clear Notes** beneath the list to remove everything in one click when you want a fresh start.
 
 Let the experimentation begin!
