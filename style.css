@@ -168,8 +168,12 @@ li::before {
 footer {
   margin-top: 2.5rem;
   font-size: 0.9rem;
-  opacity: 0.7;
   text-align: center;
+}
+
+footer > p {
+  margin: 0;
+  opacity: 0.7;
 }
 
 .notes {
@@ -262,6 +266,37 @@ footer {
 .notes-clear:disabled {
   opacity: 0.55;
   cursor: not-allowed;
+}
+
+.about {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.about h2 {
+  font-size: 1.15rem;
+  margin: 0 0 0.75rem;
+}
+
+.about p {
+  margin: 0.35rem 0;
+}
+
+.about-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.9rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 120ms ease, text-decoration-color 120ms ease;
+}
+
+.about-link:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
