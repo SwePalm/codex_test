@@ -27,4 +27,8 @@ exploring workflows, tooling, and best practices.
 
 - Capture ideas with the `Type a note...` field and use **Clear Notes** beneath the list to remove everything in one click when you want a fresh start.
 
+## About this app
+
+- Built with HTML, CSS, and JavaScript, created with help from Codex, and available at [github.com/SwePalm/codex_test](https://github.com/SwePalm/codex_test).
+
 Let the experimentation begin!
