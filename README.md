@@ -23,4 +23,8 @@ exploring workflows, tooling, and best practices.
 - Create an issue or jot down notes about what you plan to change.
 - Commit and push your improvements, then iterate again.
 
+## Notes widget tips
+
+- Capture ideas with the form and use **Clear Notes** beneath the list to remove everything in one click when you want a fresh start.
+
 Let the experimentation begin!
